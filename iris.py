@@ -20,3 +20,10 @@ print(model.score(x_test,y_test))
 
 with open('iris.pkl', 'wb') as f:
     pickle.dump(model, f)
+
+print(model.tree_.feature)
+print(model.tree_.threshold)
+print(model.tree_.value[1])
+print(model.tree_.value[3])
+print(model.tree_.value[4])
+print(model.classes_)

@@ -1,7 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import pickle
 from sklearn import tree
 from sklearn.model_selection import train_test_split
-import pickle
 
 df = pd.read_csv('iris.csv')
 colmean = df.mean()
@@ -27,3 +28,9 @@ print(model.tree_.value[1])
 print(model.tree_.value[3])
 print(model.tree_.value[4])
 print(model.classes_)
+
+x_train.columns = ['glen','gwith','klen','kwidth']
+plt.figure(figsize=(15,10))
+tree.plot_tree(
+        model,feature_names=x_train.columns,filled=True)
+plt.show()

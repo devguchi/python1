@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn import tree
 from sklearn.model_selection import train_test_split
+import pickle
 
 df = pd.read_csv('iris.csv')
 colmean = df.mean()
@@ -16,3 +17,6 @@ model = tree.DecisionTreeClassifier(
 
 model.fit(x_train,y_train)
 print(model.score(x_test,y_test))
+
+with open('iris.pkl', 'wb') as f:
+    pickle.dump(model, f)

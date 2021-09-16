@@ -1,21 +1,15 @@
 import pandas as pd
+from sklearn import tree
 
 df = pd.read_csv('iris.csv')
-print(df.tail(3))
-
-print(df['種類'].unique())
-print(df['種類'].value_counts())
-print(df.isnull().any(axis=0))
-print(df.sum())
-print(df.isnull().sum())
-# df['花弁長さ'] = df['花弁長さ'].fillna(0)
-print('mean')
 colmean = df.mean()
-print(colmean)
 df = df.fillna(colmean)
-print(df.tail(3))
-print(df.mean())
-print(df.std())
+xcol = ['がく片長さ','がく片幅','花弁長さ','花弁幅']
+x = df[xcol]
+t = df['種類']
 
-print(df.isnull().any(axis=0))
+model = tree.DecisionTreeClassifier(
+        max_depth=2, random_state=0)
 
+model.fit(x,t)
+print(model.score(x,t))

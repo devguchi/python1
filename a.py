@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn import tree
+import pickle
 
 df = pd.read_csv('data.csv')
 x = df[['age','score']]
@@ -14,3 +15,6 @@ c = [25,30]
 d = [30,70]
 print(model.predict([a,b,c,d]))
 print(model.score(x,t))
+
+with open('model.pkl', 'wb') as f:
+    pickle.dump(model, f)

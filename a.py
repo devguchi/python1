@@ -13,3 +13,4 @@ b = [12,60]
 c = [25,30]
 d = [30,70]
 print(model.predict([a,b,c,d]))
+print(model.score(x,t))
